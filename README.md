@@ -1,6 +1,6 @@
-#DB設計
+# DB設計
 
-##seminarsテーブル
+## seminarsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null:false,index:true,unique:true|
@@ -11,11 +11,11 @@
 |cost|integer||
 |other|text|
 
-###Association
+### Association
 
 
 
-##roomsテーブル
+## roomsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null:false,unique:true|
@@ -25,10 +25,10 @@
 |other|text|
 |seminar_id|references|
 
-###Association
+### Association
 
 
-##Customerテーブル
+## Customerテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|stirng|null:false,unique:true|
@@ -38,9 +38,9 @@
 |other|text||
 |seminar_id|references||
 
-###Association
+### Association
 
-##Todoテーブル
+## Todoテーブル
 |Column|Type|Options|
 |------|----|-------|
 |content|text|null:false|
@@ -48,4 +48,4 @@
 |deadline|datetime||
 |seminar_id|references||
 
-###Association
+### Association
