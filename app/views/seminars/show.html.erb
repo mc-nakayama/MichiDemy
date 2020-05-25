@@ -1,9 +1,9 @@
-<p id="notice"><%= notice %></p>
+<div class="seminar">
+  <%= render partial: "seminar", locals: { seminar: @seminar } %>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @seminar.name %>
+<p id="notice">
+  <%= notice %>
 </p>
 
-<%= link_to 'Edit', edit_seminar_path(@seminar) %> |
-<%= link_to 'Back', seminars_path %>
+<%= link_to '戻る', seminars_path %>

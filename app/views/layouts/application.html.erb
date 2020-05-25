@@ -10,6 +10,14 @@
   </head>
 
   <body>
+    <header class="header">
+        <h1 class="logo">
+          <%= link_to "MichiDemy","/" %>
+        </h1>
+        <div class="nav">
+          <%= link_to "NewSeminar",new_seminar_path %>
+        </div>
+    </header>
     <%= yield %>
   </body>
 </html>
