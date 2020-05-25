@@ -1,0 +1,19 @@
+<div class="seminar">
+  <h2> <%= seminar.name %> </h2>
+  <ul>
+    <li>日付：
+      <%= seminar.date.to_date.strftime("%Y年%m月%d日") %>
+    </li>
+    <li>開始時刻：
+      <%= seminar.start_time.to_time.strftime("%H時%M分") %>
+    </li>
+    <li>終了時刻：
+      <%= seminar.end_time.to_time.strftime("%H時%M分") %>
+    </li>
+    <li>備考：
+      <%= seminar.other %>
+    </li>
+  </ul>
+    <%= link_to '変更', edit_seminar_path(seminar) %>
+    <%= link_to '削除', seminar_path(seminar),method: :delete %>
+</div>

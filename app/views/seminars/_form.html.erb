@@ -1,22 +1,36 @@
 <%= form_with(model: seminar, local: true) do |form| %>
-  <% if seminar.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(seminar.errors.count, "error") %> prohibited this seminar from being saved:</h2>
-
-      <ul>
-      <% seminar.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :name,"セミナー名" %>
     <%= form.text_field :name %>
+    <%= form.label :date,"日付" %>
+    <%= form.date_field :date %>
+    <%= form.label :start_time,"開始時刻" %>
+    <%= form.time_field :start_time %>
+    ～
+    <%= form.label :end_time,"終了時刻" %>
+    <%= form.time_field :end_time %>
+    <%= form.label :price,"セミナー料金（1人あたり）" %>
+    <%= form.text_field :price %>円
+    <%= form.label :cost,"費用（合計）" %>
+    <%= form.text_field :cost %>円
+    <%= form.label :other,"備考" %>
+    <%= form.text_area :other %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "登録" %>
   </div>
+  
+  <% if seminar.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(seminar.errors.count, "項目") %>をご確認ください　</h2>
+
+    <ul>
+    <% seminar.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
 <% end %>

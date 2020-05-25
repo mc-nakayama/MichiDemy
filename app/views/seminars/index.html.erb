@@ -1,27 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Seminars</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="seminars">
+ <h1>Seminars</h1>
     <% @seminars.each do |seminar| %>
-      <tr>
-        <td><%= seminar.name %></td>
-        <td><%= link_to 'Show', seminar %></td>
-        <td><%= link_to 'Edit', edit_seminar_path(seminar) %></td>
-        <td><%= link_to 'Destroy', seminar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <%= render partial: "seminar", locals: { seminar: seminar } %>
+    <%= link_to '詳細', seminar_path(seminar) %>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Seminar', new_seminar_path %>
+    <%= paginate @seminars %>
+</div>

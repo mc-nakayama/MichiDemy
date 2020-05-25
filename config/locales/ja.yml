@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    models:
+      seminar: セミナー
+    attributes:
+      seminar:
+        name: セミナー名
+        date: 日付
+        start_time: 開始時刻
+        end_time: 終了時刻
+        price: セミナー料金
+        cost: 費用
