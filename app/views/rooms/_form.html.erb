@@ -1,0 +1,38 @@
+<%= form_with(model: room, local: true) do |f| %>
+
+  <div class="field">
+    <%= f.label :name,"教室名"%>
+    <%= f.text_field :name %>
+    <%= f.label :url,"URL"%>
+    <%= f.url_field :url %>
+    <%= f.label :address,"住所"%>
+    <%= f.text_field :address %>
+    <%= f.label :tel,"電話番号（ハイフンなし）" %>
+    <%= f.telephone_field :tel %>
+    <%= f.label :capacity,"最大利用人数" %>
+    ~ <%= f.number_field :capacity, in:1.0..100.0,step:1.0 %> 人
+    <%= f.label :cost, "費用(1時間あたり)" %>
+    <%= f.text_field :cost %>円
+    <%= f.label :other,"備考" %>
+    <%= f.text_area :other %>
+    </div>
+
+  <div class="actions">
+    <%= f.submit "登録"%>
+  </div>
+
+  <% if room.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(room.errors.count, "項目") %> をご確認ください</h2>
+
+      <ul>
+      <% room.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+      
+    </div>
+  <% end %>
+
+
+<% end %>

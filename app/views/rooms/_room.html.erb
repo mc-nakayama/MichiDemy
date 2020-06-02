@@ -1,0 +1,22 @@
+<div class ="room">
+    <h2><%= room.name %></h2>
+    <ul>
+        <li>URL:
+            <%= room.url %>
+        </li>
+        <li>住所︰
+            <%= room.address %>
+        </li>
+        <li>電話番号︰
+            <%= room.tel %>
+        </li>
+        <li>費用（1時間あたり）：
+            <%= room.cost %>円
+        </li>
+        <li>備考：
+            <%= room.other %>
+        </li>
+    </ul>
+        <%= link_to '変更', edit_room_path(room) %>
+        <%= link_to '削除', room_path(room),method: :delete %>
+</div>

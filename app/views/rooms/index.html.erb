@@ -1,0 +1,10 @@
+<div class="rooms">
+  <h1>登録した教室一覧</h1>
+    <% @rooms.each do |room| %>
+    <%= render partial: "room",locals:{room: room} %>
+    <%= link_to '詳細', room %>
+    <%= link_to '編集', edit_room_path(room) %>
+    <%= link_to '削除', room, method: :delete %>
+    <% end %>
+<br>
+<%= link_to '新規登録', new_room_path %>
