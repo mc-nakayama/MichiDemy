@@ -10,3 +10,15 @@ ja:
         end_time: 終了時刻
         price: セミナー料金
         cost: 費用
+        
+  activerecord:
+    models:
+      room: 教室
+    attributes:
+      room:
+        name: セミナー名
+        url: URL
+        address: 住所
+        tel: 電話番号
+        capacity: 最大利用人数
+        cost: 費用(1時間あたり)

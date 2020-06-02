@@ -1,28 +1,23 @@
 class SeminarsController < ApplicationController
   before_action :set_seminar, only: [:show, :edit, :update, :destroy]
 
-  # GET /seminars
-  # GET /seminars.json
+
   def index
     @seminars = Seminar.page(params[:page]).per(3).order(date: :asc)
+    @rooms = Room.page(params[:page]).per(3).order(created_at: :desc)
   end
 
-  # GET /seminars/1
-  # GET /seminars/1.json
+
   def show
   end
 
-  # GET /seminars/new
   def new
     @seminar = Seminar.new
   end
 
-  # GET /seminars/1/edit
   def edit
   end
 
-  # POST /seminars
-  # POST /seminars.json
   def create
     @seminar = Seminar.new(seminar_params)
     respond_to do |format|
@@ -36,8 +31,6 @@ class SeminarsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /seminars/1
-  # PATCH/PUT /seminars/1.json
   def update
     respond_to do |format|
       if @seminar.update(seminar_params)
@@ -50,8 +43,7 @@ class SeminarsController < ApplicationController
     end
   end
 
-  # DELETE /seminars/1
-  # DELETE /seminars/1.json
+
   def destroy
     @seminar.destroy
     respond_to do |format|
@@ -68,6 +60,6 @@ class SeminarsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def seminar_params
-      params.require(:seminar).permit(:name,:date,:start_time,:end_time,:price,:cost,:other)
+      params.require(:seminar).permit(:name,:date,:start_time,:end_time,:room_id,:price,:cost,:other)
     end
 end

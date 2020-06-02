@@ -1,25 +1,27 @@
-<%= form_with(model: seminar, local: true) do |form| %>
+<%= form_with(model: seminar, local: true) do |f| %>
 
   <div class="field">
-    <%= form.label :name,"セミナー名" %>
-    <%= form.text_field :name %>
-    <%= form.label :date,"日付" %>
-    <%= form.date_field :date %>
-    <%= form.label :start_time,"開始時刻" %>
-    <%= form.time_field :start_time %>
+    <%= f.label :name,"セミナー名" %>
+    <%= f.text_field :name %>
+    <%= f.label :date,"日付" %>
+    <%= f.date_field :date %>
+    <%= f.label :start_time,"開始時刻" %>
+    <%= f.time_field :start_time %>
     ～
-    <%= form.label :end_time,"終了時刻" %>
-    <%= form.time_field :end_time %>
-    <%= form.label :price,"セミナー料金（1人あたり）" %>
-    <%= form.text_field :price %>円
-    <%= form.label :cost,"費用（合計）" %>
-    <%= form.text_field :cost %>円
-    <%= form.label :other,"備考" %>
-    <%= form.text_area :other %>
+    <%= f.label :end_time,"終了時刻" %>
+    <%= f.time_field :end_time %>
+    <%= f.label :room_id,"教室" %>
+    <%= f.collection_select(:room_id,Room.all,:id,:name,:include_blank => "選択してください") %>
+    <%= f.label :price,"セミナー料金（1人あたり）" %>
+    <%= f.text_field :price %>円
+    <%= f.label :cost,"費用（合計）" %>
+    <%= f.text_field :cost %>円
+    <%= f.label :other,"備考" %>
+    <%= f.text_area :other %>
   </div>
 
   <div class="actions">
-    <%= form.submit "登録" %>
+    <%= f.submit "登録" %>
   </div>
   
   <% if seminar.errors.any? %>

@@ -6,4 +6,5 @@ class Seminar < ApplicationRecord
     validates :price, presence: true,numericality: { only_integer: true }
     validates :cost, presence: true,numericality: { only_integer: true }
 
+ has_one :seminar_room
 end
